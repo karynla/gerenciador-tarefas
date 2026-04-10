@@ -1,0 +1,60 @@
+<div class="container">
+  <button class="theme-toggle" (click)="toggleTheme()">
+    {{ isDarkMode ? '☀️ Modo Claro' : '🌙 Modo Escuro' }}
+  </button>
+
+  <h1>Gerenciador de Tarefas</h1>
+
+  <div
+    *ngIf="mensagem"
+    class="mensagem"
+    [class.sucesso]="tipoMensagem === 'sucesso'"
+    [class.erro]="tipoMensagem === 'erro'"
+  >
+    {{ mensagem }}
+  </div>
+
+  <button (click)="novaTarefa()" class="btn-nova">+ Nova Tarefa</button>
+
+  <div *ngIf="carregando" class="loading">Carregando tarefas...</div>
+
+  <div *ngIf="!carregando">
+    <div *ngIf="tarefas.length === 0" class="vazio">
+      Nenhuma tarefa cadastrada. Clique em "Nova Tarefa" para começar!
+    </div>
+
+    <table *ngIf="tarefas.length > 0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th>Status</th>
+          <th>Data de Criação</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tarefa of tarefas">
+          <td>{{ tarefa.id }}</td>
+          <td>{{ tarefa.titulo }}</td>
+          <td>{{ tarefa.descricao }}</td>
+          <td>
+            <span
+              class="badge"
+              [class.pendente]="tarefa.status === 'Pendente'"
+              [class.concluida]="tarefa.status === 'Concluída'"
+            >
+              {{ tarefa.status }}
+            </span>
+          </td>
+          <td>{{ tarefa.dataCriacao | date: 'dd/MM/yyyy HH:mm' }}</td>
+          <td class="acoes">
+            <button (click)="editar(tarefa.id)" class="btn-editar">Editar</button>
+            <button (click)="deletar(tarefa.id)" class="btn-deletar">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

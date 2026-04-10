@@ -1,0 +1,59 @@
+<div class="container">
+  <h1>{{ isEdicao ? 'Editar Tarefa' : 'Nova Tarefa' }}</h1>
+
+  <div
+    *ngIf="mensagem"
+    class="mensagem"
+    [class.sucesso]="tipoMensagem === 'sucesso'"
+    [class.erro]="tipoMensagem === 'erro'"
+  >
+    {{ mensagem }}
+  </div>
+
+  <div *ngIf="carregando && isEdicao" class="loading">Carregando tarefa...</div>
+
+  <form (ngSubmit)="salvar()" *ngIf="!carregando || !isEdicao">
+    <div class="form-group">
+      <label for="titulo">Título: <span class="obrigatorio">*</span></label>
+      <input
+        type="text"
+        id="titulo"
+        [(ngModel)]="tarefa.titulo"
+        name="titulo"
+        [class.erro-input]="erros.titulo"
+        placeholder="Digite o título da tarefa"
+      />
+      <span *ngIf="erros.titulo" class="erro-mensagem">{{ erros.titulo }}</span>
+    </div>
+
+    <div class="form-group">
+      <label for="descricao">Descrição: <span class="obrigatorio">*</span></label>
+      <textarea
+        id="descricao"
+        [(ngModel)]="tarefa.descricao"
+        name="descricao"
+        rows="4"
+        [class.erro-input]="erros.descricao"
+        placeholder="Digite a descrição da tarefa"
+      ></textarea>
+      <span *ngIf="erros.descricao" class="erro-mensagem">{{ erros.descricao }}</span>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <select id="status" [(ngModel)]="tarefa.status" name="status">
+        <option value="Pendente">Pendente</option>
+        <option value="Concluída">Concluída</option>
+      </select>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-salvar" [disabled]="carregando">
+        {{ carregando ? 'Salvando...' : 'Salvar' }}
+      </button>
+      <button type="button" (click)="cancelar()" class="btn-cancelar" [disabled]="carregando">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>

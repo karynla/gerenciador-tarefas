@@ -1,0 +1,155 @@
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  padding-top: 60px;
+}
+
+h1 {
+  color: var(--text-primary);
+  margin-bottom: 25px;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.mensagem {
+  padding: 12px 16px;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  border: 1px solid;
+}
+
+.mensagem.sucesso {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+  border-color: var(--success-border);
+}
+
+.mensagem.erro {
+  background-color: var(--error-bg);
+  color: var(--error-text);
+  border-color: var(--error-border);
+}
+
+.btn-nova {
+  background-color: var(--accent-primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  transition: background-color 0.2s;
+}
+
+.btn-nova:hover {
+  background-color: var(--accent-hover);
+}
+
+.loading, .vazio {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-secondary);
+  background-color: var(--bg-card);
+  border-radius: 2px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px var(--shadow);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px var(--shadow);
+}
+
+thead {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+tbody tr:hover {
+  background-color: var(--bg-secondary);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+  border: 1px solid;
+}
+
+.badge.pendente {
+  background-color: var(--warning-bg);
+  color: var(--warning-text);
+  border-color: var(--warning-border);
+}
+
+.badge.concluida {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+  border-color: var(--success-border);
+}
+
+.acoes {
+  white-space: nowrap;
+}
+
+.btn-editar, .btn-deletar {
+  padding: 6px 12px;
+  border: 1px solid;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  margin-right: 6px;
+  background-color: var(--bg-card);
+  transition: all 0.2s;
+}
+
+.btn-editar {
+  color: var(--info-text);
+  border-color: var(--info-border);
+}
+
+.btn-editar:hover {
+  background-color: var(--info-bg);
+}
+
+.btn-deletar {
+  color: var(--error-text);
+  border-color: var(--error-border);
+}
+
+.btn-deletar:hover {
+  background-color: var(--error-bg);
+}
