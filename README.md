@@ -50,7 +50,7 @@ dotnet ef database update
 dotnet run
 ```
 
-A API estará disponível em: `http://localhost:5217`
+A API estará disponível em: `http://localhost:5217/swagger`
 
 ### 2. Front-end (Angular)
 
